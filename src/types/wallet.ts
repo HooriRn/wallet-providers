@@ -1,9 +1,9 @@
-import { ConnectionTypes } from ".";
+import { ConnectionTypes, walletAddresses } from ".";
 
 export interface Wallet {
   address: String | undefined;
   connectionType: ConnectionTypes;
-  connect(): void;
+  connect?(): void;
   disconnect(): void;
-  getAddress(): string;
+  getAddress(): walletAddresses;
 }

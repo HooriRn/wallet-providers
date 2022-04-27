@@ -13,16 +13,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const main = (
+
+root.render(
   <ChakraProvider theme={theme}>
     <App />
   </ChakraProvider>
-)
-
-root.render(
-  <React.StrictMode>
-    {main}
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

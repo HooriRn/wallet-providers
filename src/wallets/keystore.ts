@@ -4,8 +4,9 @@ import { Client as thorchainClient } from '@xchainjs/xchain-thorchain';
 import { Network } from "@xchainjs/xchain-client";
 import { CHAIN_IDS } from "../constants";
 export class KeystoreClass implements Wallet {
+  static connectionType: ConnectionTypes = ConnectionTypes.KEYSTORE;
+  static iconSrc: string = '';
   address: String | undefined;
-  connectionType: ConnectionTypes = ConnectionTypes.KEYSTORE;
   userThorchainClient: thorchainClient;
 
   constructor(phrase?: string) {

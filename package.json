@@ -45,6 +45,8 @@
     ">0.2%",
     "not dead",
     "not op_mini all"
-  ]
-  
+  ],
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  }
 }

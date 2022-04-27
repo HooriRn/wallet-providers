@@ -1,4 +1,4 @@
-import { ConnectionTypes, walletAddresses } from ".";
+import { walletAddresses } from ".";
 
 export interface Wallet {
   address: String | undefined;

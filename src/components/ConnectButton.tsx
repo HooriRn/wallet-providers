@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store";
 import WalletsProviders from "../wallets";
 import WalletModal from "./WalletModal";
+import KeystoreImport from "./KeystoreImport";
 
 type Props = {};
 
@@ -42,6 +43,7 @@ const ConnectButton: FC<Props> = () => {
       </Button>
       <WalletModal isOpen={isOpen} onClose={onClose} title='Choose your connection type'>
         {buttons}
+        <KeystoreImport walletModalClose={onClose}></KeystoreImport>
       </WalletModal>
     </>
   )

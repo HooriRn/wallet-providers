@@ -24,4 +24,18 @@ const WalletsProviders = () => {
   ]
 }
 
+export const walletImport = {
+  name: 'Import Keystore',
+  icon: KeystoreClass.iconSrc,
+  type: KeystoreClass.connectionType,
+  connect: (dispatch: AppDispatch, phrase: string) => {
+    const thorClient = new KeystoreClass(phrase);
+    dispatch(addWallet({
+      address: thorClient.getAddress(),
+      client: thorClient,
+      type: ConnectionTypes.KEYSTORE
+    }))
+  }
+}
+
 export default WalletsProviders;

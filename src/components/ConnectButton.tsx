@@ -1,5 +1,7 @@
 import { Button, HStack, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { FC } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store";
 import WalletsProviders from "../wallets";
 import WalletModal from "./WalletModal";
 
@@ -7,6 +9,7 @@ type Props = {};
 
 const ConnectButton: FC<Props> = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch: AppDispatch = useDispatch();
 
   const buttons = WalletsProviders().map((wallet, index) => (
     <Button
@@ -19,7 +22,7 @@ const ConnectButton: FC<Props> = () => {
       colorScheme={"blackAlpha"}
       onClick={() => {
         onClose();
-        wallet.connect();
+        wallet.connect(dispatch);
       }}
     >
       <HStack justify="space-between">

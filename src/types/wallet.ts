@@ -1,7 +1,7 @@
 import { walletAddresses } from ".";
 
 export interface Wallet {
-  address: String | undefined;
+  address: walletAddresses;
   connect?(): void;
   disconnect(): void;
   getAddress(): walletAddresses;

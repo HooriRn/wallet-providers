@@ -6,11 +6,14 @@ import { CHAIN_IDS } from "../constants";
 export class KeystoreClass implements Wallet {
   static connectionType: ConnectionTypes = ConnectionTypes.KEYSTORE;
   static iconSrc: string = '';
-  address: String | undefined;
+  address: walletAddresses;
   userThorchainClient: thorchainClient;
 
-  constructor(phrase?: string) {
+  constructor(phrase: string) {
     this.userThorchainClient = new thorchainClient({ network: Network.Testnet, phrase, chainIds: CHAIN_IDS });
+    this.address = {
+      [THORChain]: this.userThorchainClient.getAddress()
+    };
   }
 
   async disconnect(): Promise<void> {
@@ -18,8 +21,6 @@ export class KeystoreClass implements Wallet {
   }
 
   getAddress(chain?: Chain): walletAddresses {
-    return {
-      [THORChain]: this.userThorchainClient.getAddress(),
-    };
+    return this.address;
   }
 }

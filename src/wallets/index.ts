@@ -18,7 +18,8 @@ const WalletsProviders = () => {
         dispatch(addWallet({
           address: thorClient.getAddress(),
           client: thorClient,
-          type: KeystoreClass.connectionType
+          type: KeystoreClass.connectionType,
+          network: 'testnet'
         }))
       }
     },
@@ -29,10 +30,12 @@ const WalletsProviders = () => {
       connect: async (dispatch: AppDispatch) => {
         const xdefiClient = new XDEFIClass();
         await xdefiClient.connect()
+        console.log(xdefiClient.getNetwork())
         dispatch(addWallet({
           address: xdefiClient.getAddress(),
           client: xdefiClient,
-          type: XDEFIClass.connectionType
+          type: XDEFIClass.connectionType,
+          network: xdefiClient.getNetwork()
         }))
       }
     }

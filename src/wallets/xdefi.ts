@@ -60,4 +60,8 @@ export class XDEFIClass implements Wallet {
   getAddress(chain?: Chain): walletAddresses {
     return this.address;
   }
+
+  getNetwork() {
+    return this.xfiObject?.thorchain?.network;
+  }
 }

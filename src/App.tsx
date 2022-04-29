@@ -24,6 +24,13 @@ function App() {
           <Badge borderRadius='full' px='2' colorScheme='teal'>
             {w.type}
           </Badge>
+          {
+            w.network &&
+            <Badge borderRadius='full' px='2' colorScheme={w.network == 'testnet'? 'yellow':'green'}>
+              {w.network}
+            </Badge>
+          }
+          
         </HStack>
         <VStack align='stretch'>
           {addresses}

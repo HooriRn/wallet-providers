@@ -26,7 +26,7 @@ const WalletsProviders = () => {
 
 export const walletImport = {
   name: 'Import Keystore',
-  icon: KeystoreClass.iconSrc,
+  icon: 'https://img.icons8.com/ios-filled/50/000000/add--v1.png',
   type: KeystoreClass.connectionType,
   connect: (dispatch: AppDispatch, phrase: string) => {
     const thorClient = new KeystoreClass(phrase);

@@ -9,7 +9,7 @@ function App() {
   const wallets = useSelector((state: RootState) => state.walletStorage).map((w, i) => {
     const addresses = Object.entries(w.address).map(p => (
       <HStack borderRadius='lg' borderWidth='1px' p={3}>
-        <Badge borderRadius='full' px='2'>
+        <Badge fontSize='0.8em' variant='outline' colorScheme='green'>
           {p[0]}
         </Badge>
         <Text>
@@ -19,14 +19,16 @@ function App() {
     ))
 
     return (
-      <Box key={i} minW='lg' borderWidth='1px' borderRadius='lg' overflow='hidden' p={4}>
-        <Badge borderRadius='full' px='2' mb={2} colorScheme='teal'>
-          {w.type}
-        </Badge>
-        <Text>
+      <VStack key={i} borderWidth='1px' borderRadius='lg' overflow='hidden' p={2}>
+        <HStack justify="flex-start">
+          <Badge borderRadius='full' px='2' colorScheme='teal'>
+            {w.type}
+          </Badge>
+        </HStack>
+        <Text fontFamily="Roboto Mono">
           {addresses}
         </Text>
-      </Box>
+      </VStack>
     )
   })
   

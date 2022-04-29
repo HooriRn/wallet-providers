@@ -5,7 +5,7 @@ import { Network } from "@xchainjs/xchain-client";
 import { CHAIN_IDS } from "../constants";
 export class KeystoreClass implements Wallet {
   static connectionType: ConnectionTypes = ConnectionTypes.KEYSTORE;
-  static iconSrc: string = '';
+  static iconSrc: string = 'https://img.icons8.com/ios/50/000000/key.png';
   address: walletAddresses;
   userThorchainClient: thorchainClient;
 

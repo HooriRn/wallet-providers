@@ -42,8 +42,8 @@ const ConnectButton: FC<Props> = () => {
         </HStack>
       </Button>
       <WalletModal isOpen={isOpen} onClose={onClose} title='Choose your connection type'>
-        {buttons}
         <KeystoreImport walletModalClose={onClose}></KeystoreImport>
+        {buttons}
       </WalletModal>
     </>
   )

@@ -12,7 +12,7 @@ function App() {
         <Badge fontSize='0.8em' variant='outline' colorScheme='green'>
           {p[0]}
         </Badge>
-        <Text>
+        <Text fontFamily="Roboto Mono">
           {p[1]}
         </Text>
       </HStack>
@@ -25,9 +25,9 @@ function App() {
             {w.type}
           </Badge>
         </HStack>
-        <Text fontFamily="Roboto Mono">
+        <VStack align='stretch'>
           {addresses}
-        </Text>
+        </VStack>
       </VStack>
     )
   })

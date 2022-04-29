@@ -3,6 +3,7 @@ import { AppDispatch } from "../store";
 import { addWallet } from "../store/wallets";
 import { ConnectionTypes } from "../types";
 import { generatePhrase } from '@xchainjs/xchain-crypto';
+import { XDEFIClass } from "./xdefi";
 
 
 const WalletsProviders = () => {
@@ -17,7 +18,21 @@ const WalletsProviders = () => {
         dispatch(addWallet({
           address: thorClient.getAddress(),
           client: thorClient,
-          type: ConnectionTypes.KEYSTORE
+          type: KeystoreClass.connectionType
+        }))
+      }
+    },
+    {
+      name: 'Connect XDEFI',
+      icon: XDEFIClass.iconSrc,
+      type: XDEFIClass.connectionType,
+      connect: async (dispatch: AppDispatch) => {
+        const xdefiClient = new XDEFIClass();
+        await xdefiClient.connect()
+        dispatch(addWallet({
+          address: xdefiClient.getAddress(),
+          client: xdefiClient,
+          type: XDEFIClass.connectionType
         }))
       }
     }

@@ -1,4 +1,4 @@
-import { Button, HStack, Text, useDisclosure, Textarea } from "@chakra-ui/react";
+import { Button, Image, Text, useDisclosure, Textarea, Flex, Spacer } from "@chakra-ui/react";
 import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store";
@@ -23,14 +23,15 @@ const KeystoreImport: FC<Props> = ({ walletModalClose }) => {
         borderRadius="xl"
         width="100%"
         mb="4"
-        colorScheme={"blackAlpha"}
         onClick={() => {
           onOpen();
         }}
       >
-        <HStack justify="space-between">
+        <Flex w="100%" align="center">
           <Text>Import Phrase</Text>
-        </HStack>
+          <Spacer />
+          <Image src="https://img.icons8.com/ios/50/000000/add--v1.png" htmlWidth="24" alt="" />
+        </Flex>
       </Button>
       <WalletModal isOpen={isOpen} onClose={onClose} title='Choose your connection type'>
         <Textarea value={phrase} onChange={handleChange} placeholder='Paste your seed phrase' isRequired={true} />

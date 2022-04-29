@@ -1,4 +1,4 @@
-import { Button, HStack, Image, Text, useDisclosure } from "@chakra-ui/react";
+import { Button, Flex, HStack, Image, Spacer, Text, useDisclosure } from "@chakra-ui/react";
 import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store";
@@ -20,16 +20,16 @@ const ConnectButton: FC<Props> = () => {
       borderRadius="xl"
       width="100%"
       mb="4"
-      colorScheme={"blackAlpha"}
       onClick={() => {
         onClose();
         wallet.connect(dispatch);
       }}
     >
-      <HStack justify="space-between">
+      <Flex w="100%" align="center">
         <Text>{wallet.name}</Text>
+        <Spacer />
         <Image src={wallet.icon} htmlWidth="24" alt="" />
-      </HStack>
+      </Flex>
     </Button>
   ));
   

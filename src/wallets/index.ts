@@ -1,12 +1,41 @@
 import { KeystoreClass } from "./keystore";
-import { AppDispatch } from "../store";
+import { AppDispatch, RootState } from "../store";
 import { addWallet } from "../store/wallets";
 import { ConnectionTypes } from "../types";
 import { generatePhrase } from '@xchainjs/xchain-crypto';
 import { XDEFIClass } from "./xdefi";
-
+import { useWallet, ConnectType, useConnectedWallet } from "@terra-money/wallet-provider";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Chain } from "@xchainjs/xchain-util";
 
 const WalletsProviders = () => {
+  const { connect, availableConnections } = useWallet();
+  const wallet = useConnectedWallet();
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    if(!wallet)
+      return
+    dispatch(addWallet({
+      address: {[Chain.Terra]: wallet?.terraAddress},
+      client: wallet,
+      type: wallet?.connectType,
+      network: wallet?.network.name
+    }))
+  }, [wallet?.network.name, wallet?.terraAddress]);
+
+  const terraWallets = availableConnections
+    .filter(({ type }) => type !== (ConnectType.READONLY))
+    .map(({ type, icon, name, identifier }) => ({
+      type,
+      name,
+      icon,
+      connect: (dispatch: AppDispatch) => {
+        connect(type, identifier);
+      }
+    }))
+  
   return [
     {
       name: 'Create new Keystore',
@@ -38,7 +67,8 @@ const WalletsProviders = () => {
           network: xdefiClient.getNetwork()
         }))
       }
-    }
+    },
+    ...terraWallets
   ]
 }
 

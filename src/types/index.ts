@@ -5,7 +5,7 @@ export * from './wallet';
 export enum ConnectionTypes {
   XDEFI = "XDEFI",
   KEYSTORE = "KEYSTORE",
-  WC = "WALLETCONNECT"
+  WC = "WALLETCONNECT",
 }
 
 export type walletAddresses = Partial<Record<Chain, string>>;

@@ -7,11 +7,14 @@
     "@cosmos-client/core": "^0.45.1",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@ledgerhq/hw-transport": "^6.27.1",
+    "@ledgerhq/hw-transport-webusb": "^6.2.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@terra-money/wallet-provider": "^3.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+    "@thorchain/ledger-thorchain": "^0.1.0-alpha.2",
     "@types/jest": "^27.4.1",
     "@types/node": "^16.11.31",
     "@types/react": "^18.0.8",
@@ -54,6 +57,8 @@
     "react-error-overlay": "6.0.9"
   },
   "devDependencies": {
+    "@ledgerhq/logs": "^6.2.0",
+    "@types/ledgerhq__hw-transport": "^4.21.4",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
